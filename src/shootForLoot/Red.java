@@ -1,5 +1,6 @@
 package shootForLoot;
-
+import processing.core.PApplet;
+import processing.core.PGraphics;
 
 
 public class Red extends Player{

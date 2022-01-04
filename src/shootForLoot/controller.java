@@ -1,8 +1,10 @@
 package shootForLoot;
 import processing.core.PApplet;
+import processing.core.PGraphics;
 
 public class controller extends PApplet{
 	 Red p1;
+	 
 	 public static void main(String[] args) {
 	        PApplet.main("shootForLoot.controller"); 
 	    }
@@ -12,10 +14,9 @@ public class controller extends PApplet{
 		 p1 = new Red(5, 100, 100);
 	 }
 	 
-	 public void setup() {
-		 
-	 }
+	 
 	 public void draw() {
+		
 		 p1.drawPlayer(this);
 	 }
 	 
@@ -23,6 +24,7 @@ public class controller extends PApplet{
 		 if(key == 'd') {
 			 p1.move();
 			 p1.drawPlayer(this);
+			 
 		 }
 	 }
 }

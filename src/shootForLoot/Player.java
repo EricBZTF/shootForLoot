@@ -1,5 +1,6 @@
 package shootForLoot;
 import processing.core.PApplet;
+import processing.core.PGraphics;
 
 public abstract class Player extends PApplet{
 	private int width = 20;
@@ -8,6 +9,7 @@ public abstract class Player extends PApplet{
 	private float speed;
 	private float xPos;
 	private float yPos;
+	PGraphics pg;
 	/**
 	 * @param width
 	 * @param height
@@ -20,13 +22,22 @@ public abstract class Player extends PApplet{
 		this.xPos = xPos;
 		this.yPos = yPos;
 		
+		
 	}
 	
+	public void setup() {
+		pg = createGraphics(50, 50);
+		pg.beginDraw();
+		pg.stroke(255);
+		pg.fill(140, 56, 12);
+		pg.rect(xPos, yPos, 50, 50);
+		pg.endDraw();
+		System.out.println("h");
+	}
+	
+	
 	public void drawPlayer(PApplet window) {
-		
-		window.fill(130,130,130);
-		window.rect(width, height, xPos, yPos);	
-		
+		window.image(pg, 50, 40);
 	}
 	
 	public void move() {	
