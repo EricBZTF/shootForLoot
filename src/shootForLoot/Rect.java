@@ -1,5 +1,10 @@
 package shootForLoot;
 
+/**
+ * Class to set dimensions and position of platforms
+ * @author ericf
+ *
+ */
 public class Rect {
 	private float xPos;
 	private float yPos;
