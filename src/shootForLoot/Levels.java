@@ -87,9 +87,9 @@ public class Levels extends PApplet {
 		r1.setWidth(600);
 		r1.setHeight(30);
 		
-		r2.setxPos(400);
-		r2.setyPos(548);
-		r2.setWidth(300);
+		r2.setxPos(500);
+		r2.setyPos(530);
+		r2.setWidth(200);
 		r2.setHeight(30);
 		
 		r3.setxPos(500);
@@ -102,22 +102,22 @@ public class Levels extends PApplet {
 		r4.setWidth(200);
 		r4.setHeight(30);
 		
-		r5.setxPos(500);
-		r5.setyPos(170);
-		r5.setWidth(300);
+		r5.setxPos(50);
+		r5.setyPos(323);
+		r5.setWidth(100);
 		r5.setHeight(30);
 		
-		cr1.setxPos(300);
-		cr1.setyPos(299);
-		cr1.setWidth(300);
-		cr1.setHeight(30);
+		cr1.setxPos(250);
+		cr1.setyPos(327);
+		cr1.setWidth(30);
+		cr1.setHeight(200);
 		cr1.setColor(cr1.getColor());
 		
-		s1.setxPos(400);
-		s1.setyPos(150);
+		s1.setxPos(50);
+		s1.setyPos(399);
 		
-		g1.setxPos(500);
-		g1.setyPos(135);
+		g1.setxPos(50);
+		g1.setyPos(288);
 		
 		window.rectMode(CENTER);
 		window.fill(128, 128, 128);

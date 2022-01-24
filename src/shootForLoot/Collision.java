@@ -22,7 +22,7 @@ public class Collision extends PApplet {
 	 * @return
 	 */
 	public boolean checkForCollisionOnTop(Rect r1) {
-		if(p1.getXPos() <= r1.getxPos() + r1.getWidth()/2 && p1.getXPos() >= r1.getxPos() - r1.getWidth()/2 && p1.getYPos() + 10 == r1.getyPos() - 15) {
+		if(p1.getXPos() <= r1.getxPos() + r1.getWidth()/2 && p1.getXPos() >= r1.getxPos() - r1.getWidth()/2 && p1.getYPos() + 10 == r1.getyPos() - r1.getHeight()/2) {
 			 isOnGround = true;	 
 		}else {
 			isOnGround = false;
@@ -36,8 +36,8 @@ public class Collision extends PApplet {
 	 * @return
 	 */
 	public boolean checkForCollisionOnBottom(Rect r1) {
-		if(p1.getXPos() + 10 >= r1.getxPos() - r1.getWidth()/2 && p1.getXPos()-10 <= r1.getxPos()+ r1.getWidth()/2 && p1.getYPos() == r1.getyPos()+14) {
-			 System.out.println(r1.getWidth());
+		if(p1.getXPos() + 10 >= r1.getxPos() - r1.getWidth()/2 && p1.getXPos()-10 <= r1.getxPos()+ r1.getWidth()/2 && dist(0, p1.getYPos(), 0, r1.getyPos()) <= 15) {
+			
 			return true;
 		}else {
 			return false;
@@ -45,12 +45,14 @@ public class Collision extends PApplet {
 	}
 	
 	public void checkForCollisionOnSide(Rect r1) {
-		if(p1.getYPos() + 10 > r1.getyPos() - 15 && p1.getYPos() - 10 < r1.getyPos() +15) {
-			if(p1.getXPos() + 10 >= r1.getxPos() - r1.getWidth()/2 && p1.getXPos() < r1.getxPos() -r1.getWidth()/2) {
-				p1.setXPos(p1.getXPos()-2);
-			}else if(p1.getXPos() - 10 <= r1.getxPos() + r1.getWidth()/2 && p1.getXPos() > r1.getxPos() + r1.getWidth()/2) {
-				p1.setXPos(p1.getXPos()+2);
+		if(p1.getYPos() + 10 > r1.getyPos() - r1.getHeight()/2 && p1.getYPos() - 10 < r1.getyPos() + r1.getHeight()/2) {			
+			if(p1.getXPos() + 10 >= r1.getxPos() - r1.getWidth()/2 && p1.getXPos()-10 < r1.getxPos() - r1.getWidth()/2) {
+				p1.setXPos(p1.getXPos()-10);	
 			}
+			else if(p1.getXPos() - 10 <= r1.getxPos() + r1.getWidth()/2 && p1.getXPos() + 10 > r1.getxPos() + r1.getWidth()/2) {
+				p1.setXPos(p1.getXPos()+10);
+				
+							}
 		}
 			
 	}
@@ -61,7 +63,6 @@ public class Collision extends PApplet {
 			
 			return true;
 		}else {
-			System.out.println("wrong color");
 			return false;
 		}
 	};

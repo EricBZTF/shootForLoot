@@ -13,11 +13,16 @@ public class controller extends PApplet{
 	 Collision c1;
 	 Collision c2;
 	 
+	 int currLevel = 1;
+	 
 	 Rect r1;
 	 Rect r2;
 	 Rect r3;
 	 Rect r4; 
 	 Rect r5;
+	 
+	 float yOnSwitch;
+	 float xOnSwitch;
 	 
 	 Switch s1;
 	 
@@ -108,6 +113,10 @@ public class controller extends PApplet{
 			 textSize(18);
 			 text("Press n for next level", 50, 250);
 			 text("Press s to get to the startscreen", 50, 270);
+			 p1.setXPos(50);
+			 p1.setYPos(610);
+			 p2.setXPos(450);
+			 p2.setYPos(610);
 		 }
 		 if(state == SpielZustand.Start) {
 			 background(0);
@@ -123,9 +132,18 @@ public class controller extends PApplet{
 			 
 		 }
 		 if(state == SpielZustand.Spiel) {
-		 background(0);
+			 background(0);
+			 switch(currLevel) {
+			 case 1:
+				 l1.levelOne(this, r1, r2, r3, r4, r5, cr1, s1, g, rects);
+				 break;
+			 case 2:
+				 l1.levelTwo(this, r1, r2, r3, r4, r5, cr1, s1, g, rects);
+				 break;
+			 };
+		
+		 System.out.println(xOnSwitch +" "+ yOnSwitch);
 		 
-		 l1.levelTwo(this, r1, r2, r3, r4, r5, cr1, s1, g, rects);
 		 
 		 p1.drawPlayer(this);
 		 p2.drawPlayer(this);
@@ -211,7 +229,7 @@ public class controller extends PApplet{
 					 
 				 }
 		 
-		 if(dist(p1.getXPos(), p1.getYPos(), g.getxPos(), g.getyPos()) < 20 && dist(p1.getXPos(), p1.getYPos(), g.getxPos(), g.getyPos()) < 20){
+		 if(dist(players.get(currPlayer).getXPos(), players.get(currPlayer).getYPos(), g.getxPos(), g.getyPos()) < 20 && dist(xOnSwitch, yOnSwitch, g.getxPos(), g.getyPos())< 20){
 			 state = SpielZustand.Ende;
 		 }
 		 	}
@@ -234,6 +252,11 @@ public class controller extends PApplet{
 	 }
 	 
 	 public void keyPressedEnd() {
+		 if(key == 'n') {
+			 currLevel += 1;
+			 state = SpielZustand.Spiel;
+			 
+		 }
 		 if(key == 's') {
 			 state = SpielZustand.Start;
 		 }
@@ -256,6 +279,8 @@ public class controller extends PApplet{
 			 players.get(currPlayer).setJumping(true);
 			 currY = players.get(currPlayer).getYPos();
 		 }else if(key == 's') {
+			  xOnSwitch = players.get(currPlayer).getXPos();
+			  yOnSwitch = players.get(currPlayer).getYPos();
 			 if(currPlayer == 1) {
 				 currPlayer = 0;
 			 }else {
