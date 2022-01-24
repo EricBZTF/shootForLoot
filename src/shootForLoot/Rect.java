@@ -10,17 +10,8 @@ public class Rect {
 	private float yPos;
 	private float width; 
 	private float height;
-	/**
-	 * @param xPos
-	 * @param yPos
-	 * @param width
-	 * @param height
-	 */
-	public Rect() {
-		
-	}
 	
-	
+
 	public void setxPos(float xPos) {
 		this.xPos = xPos;
 	}

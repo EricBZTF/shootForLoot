@@ -1,6 +1,11 @@
 package shootForLoot;
 
-public class Goal {
+/**
+ * Class for the goal
+ * @author ericf
+ *
+ */
+public class Goal implements Object{
 	private float xPos;
 	private float yPos;
 	

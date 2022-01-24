@@ -172,6 +172,20 @@ public class Levels extends PApplet {
 		
 	}
 	
+	
+	/**
+	 * Draws the level
+	 * @param window
+	 * @param r1
+	 * @param r2
+	 * @param r3
+	 * @param r4
+	 * @param r5
+	 * @param cr1
+	 * @param s1
+	 * @param g1
+	 * @param rects
+	 */
 	public void drawLevels(PApplet window,Rect r1, Rect r2, Rect r3, Rect r4, Rect r5, ColorRec cr1, Switch s1, Goal g1, ArrayList<Rect> rects) {
 		window.rectMode(CENTER);
 		window.fill(128, 128, 128);

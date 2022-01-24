@@ -1,6 +1,11 @@
 package shootForLoot;
 
-public class Switch {
+/**
+ * Class for the colorswitch
+ * @author ericf
+ *
+ */
+public class Switch implements Object{
 	private float xPos;
 	private float yPos;
 	

@@ -1,5 +1,9 @@
 package shootForLoot;
 
+/**
+ * Class for the colored platforms
+ * @author ericf
+ */
 public class ColorRec extends Rect{
 	String color;
 	

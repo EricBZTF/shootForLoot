@@ -5,13 +5,14 @@ import processing.core.PGraphics;
 public abstract class Player extends PApplet{
 	private int width = 20;
 	private int height = 20;
-	String color;
+
 	private float speed;
 	private float xPos;
 	private float yPos;
 	
 	private float velocity;
 	
+	String color;
 	
 	boolean isFalling = false;
 	boolean isOnGround = true;
@@ -36,7 +37,11 @@ public abstract class Player extends PApplet{
 		
 	}
 	
-	public void drawPlayer(PApplet window) {
+	
+	public String getColor() {
+		return color;
+	}
+	public void drawPlayer(PApplet window, String color) {
 		window.rectMode(CENTER);
 		if(color == "BLUE") {
 			window.fill(0,0,255);
@@ -85,10 +90,7 @@ public abstract class Player extends PApplet{
 		this.velocity = velocity;
 	}
 	
-	public String getColor() {
-		return color;
-		
-	}
+	
 
 	public boolean isFalling() {
 		return isFalling;

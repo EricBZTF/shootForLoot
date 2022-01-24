@@ -3,15 +3,10 @@ import processing.core.PApplet;
 import java.util.ArrayList;
 import processing.core.PGraphics;
 
-public class controller extends PApplet{
-	 Red p1;
-	 Blue p2;
-	 Levels l1;
-	 PGraphics pg;
-	 float currY;
+public class Controller extends PApplet{
 	 
-	 Collision c1;
-	 Collision c2;
+	 Levels l1;
+	 float currY;
 	 
 	 int currLevel = 1;
 	 
@@ -21,24 +16,26 @@ public class controller extends PApplet{
 	 Rect r4; 
 	 Rect r5;
 	 
+	 ArrayList<Rect> rects;
+	 
 	 float yOnSwitch;
 	 float xOnSwitch;
 	 
 	 Switch s1;
-	 
 	 Goal g;
 	 	 
-	 ArrayList<Rect> rects;
+	
 	 
 	 ColorRec cr1;
-	 
 	 ArrayList<ColorRec> colorRects;
 	 
-	 Boolean checkForRightColor = false;
-	 
+	 Red p1;
+	 Blue p2;
 	 int currPlayer = 0;
 	 ArrayList<Player> players;
 	 
+	 Collision c1;
+	 Collision c2;
 	 ArrayList<Collision> collisions;
 	 
 	 int rectsOriginalSize;
@@ -46,12 +43,20 @@ public class controller extends PApplet{
 	 enum SpielZustand{
 		 Start, Spiel, Ende;
 	 }
+	 
 	 SpielZustand state = SpielZustand.Start;
 	 
+	 /**
+	  * Main to start the programm
+	  * @param args
+	  */
 	 public static void main(String[] args) {
-	        PApplet.main("shootForLoot.controller"); 
+	        PApplet.main("shootForLoot.Controller"); 
 	    }
 	 
+	 /**
+	  * Displays Screen and initialzes all needed objects
+	  */
 	 public void settings() {
 		 size(600, 650);
 		 
@@ -87,16 +92,8 @@ public class controller extends PApplet{
 		 colorRects = new ArrayList<>();
 		 cr1 = new ColorRec();
 		 colorRects.add(cr1);
-		 
-		 
-		 rectsOriginalSize = rects.size();
-		 
-		 
-	 }
-	 
-	 public void setup() {
-		 background(0);
-	 }
+		 rectsOriginalSize = rects.size(); 
+} 
 	 
 	 
 	 /**
@@ -153,8 +150,8 @@ public class controller extends PApplet{
 			 
 		 l1.drawLevels(this, r1, r2, r3, r4, r5, cr1, s1, g, rects);
 
-		 p1.drawPlayer(this);
-		 p2.drawPlayer(this);
+		 p1.drawPlayer(this, p1.getColor());
+		 p2.drawPlayer(this, p2.getColor());
 		 
 		 if(players.get(currPlayer).isJumping() == true) {
 			 players.get(currPlayer).jump();
@@ -246,9 +243,7 @@ public class controller extends PApplet{
 	 
 	 
 	 /**
-	  * Move if a or d are pressed
-	  * Set velocity for jumps
-	  * Set currY to current y coordinates to limit jump height
+	  * Listens for keys and changes state 
 	  */
 	 
 	 public void keyPressed() {
@@ -259,6 +254,10 @@ public class controller extends PApplet{
 		 }
 	 }
 	 
+	 /**
+	  * Changes level if n is pressed
+	  * Back to menue if s is pressed
+	  */
 	 public void keyPressedEnd() {
 		 if(key == 'n') {
 			 currLevel += 1;
@@ -276,6 +275,11 @@ public class controller extends PApplet{
 		 }
 	 }
 	 
+	 /**
+	  * Move if a or d are pressed
+	  * Set velocity for jumps
+	  * Set currY to current y coordinates to limit jump height
+	  */
 	 public void keyPressedInGame() {
 		 if(key == 'd') {
 			 players.get(currPlayer).move(1);	

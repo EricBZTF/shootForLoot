@@ -55,10 +55,8 @@ public class Collision extends PApplet {
 			}
 			else if(p1.getXPos() - 10 <= r1.getxPos() + r1.getWidth()/2 && p1.getXPos() + 10 > r1.getxPos() + r1.getWidth()/2) {
 				p1.setXPos(p1.getXPos()+10);
-				
 							}
 		}
-			
 	}
 	
 	/**
