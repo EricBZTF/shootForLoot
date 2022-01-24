@@ -44,6 +44,10 @@ public class Collision extends PApplet {
 		}
 	}
 	
+	/**
+	 * Checks if player hits side of platform
+	 * @param r1
+	 */
 	public void checkForCollisionOnSide(Rect r1) {
 		if(p1.getYPos() + 10 > r1.getyPos() - r1.getHeight()/2 && p1.getYPos() - 10 < r1.getyPos() + r1.getHeight()/2) {			
 			if(p1.getXPos() + 10 >= r1.getxPos() - r1.getWidth()/2 && p1.getXPos()-10 < r1.getxPos() - r1.getWidth()/2) {
@@ -57,6 +61,11 @@ public class Collision extends PApplet {
 			
 	}
 	
+	/**
+	 * Checks if colored rects have to be checked or not
+	 * @param cr1
+	 * @return
+	 */
 	public boolean checkForRightColor(ColorRec cr1) {
 		
 		if(cr1.getColor() == p1.getColor()) {
@@ -68,6 +77,11 @@ public class Collision extends PApplet {
 	};
 	
 	
+	/**
+	 * Checks if player stands on switch
+	 * @param s1
+	 * @return
+	 */
 	public boolean isOnSwitch(Switch s1) {
 		if(dist(p1.getXPos(), p1.getYPos(), s1.getxPos(), s1.getyPos()) <=20) {
 			return true;

@@ -117,6 +117,12 @@ public class controller extends PApplet{
 			 p1.setYPos(610);
 			 p2.setXPos(450);
 			 p2.setYPos(610);
+			 p1.setFalling(false);
+			 p1.setOnGround(true);
+			 p1.setJumping(false);
+			 p2.setFalling(false);
+			 p2.setOnGround(true);
+			 p2.setJumping(false);
 		 }
 		 if(state == SpielZustand.Start) {
 			 background(0);
@@ -125,7 +131,7 @@ public class controller extends PApplet{
 			 text("Press 's' to start the game", 60, 200);
 			 textSize(18);
 			 text("Move left --> a", 50, 250);
-			 text("Move right --> b", 50, 270);
+			 text("Move right --> d", 50, 270);
 			 text("Jump--> SPACE", 50, 290);
 			 text("Switch characters --> s", 50, 310);
 			 text("Both characters need to get to the golden goal", 50, 330);
@@ -140,11 +146,13 @@ public class controller extends PApplet{
 			 case 2:
 				 l1.levelTwo(this, r1, r2, r3, r4, r5, cr1, s1, g, rects);
 				 break;
+			 case 3:
+				 l1.levelThree(this, r1, r2, r3, r4, r5, cr1, s1, g, rects);
+				 break;
 			 };
-		
-		 System.out.println(xOnSwitch +" "+ yOnSwitch);
-		 
-		 
+			 
+		 l1.drawLevels(this, r1, r2, r3, r4, r5, cr1, s1, g, rects);
+
 		 p1.drawPlayer(this);
 		 p2.drawPlayer(this);
 		 
