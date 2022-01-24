@@ -100,6 +100,7 @@ public class Controller extends PApplet{
 	  * drawing the levels and player
 	  * calls jump if SPACEBAR is pressed
 	  * calls collisiondetection
+	  * displays different if state changes
 	  */
 	 public void draw() {
 		 if(state == SpielZustand.Ende) {

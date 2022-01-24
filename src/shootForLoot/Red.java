@@ -20,11 +20,9 @@ public class Red extends Player{
 	 */
 	public Red(float speed, float xPos, float yPos, String color) {
 		super(speed, xPos, yPos, color);
-		this.color = color;
+		
 		// TODO Auto-generated constructor stub
 	}
 	
-	public String getColor() {
-		return color;
-	}
+	
 }

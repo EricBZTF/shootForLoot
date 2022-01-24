@@ -12,11 +12,11 @@ public abstract class Player extends PApplet{
 	
 	private float velocity;
 	
-	String color;
+	private String color;
 	
-	boolean isFalling = false;
-	boolean isOnGround = true;
-	boolean isJumping = false;
+	private boolean isFalling = false;
+	private boolean isOnGround = true;
+	private boolean isJumping = false;
 	
 	/**
 	 * @param width
